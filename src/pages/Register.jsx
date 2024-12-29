@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import animationPic from '../assets/lottiee/register.json'
 import Lottie from 'lottie-react';
+import { AuthContext } from '../Context/AuthContext/AuthProvider';
 
 const Register = () => {
+    const {createUser} = useContext(AuthContext)
+
     const handleRegister=(event)=>{
         event.preventDefault();
         const form = event.target;
         const email=form.email.value;
         const password = form.password.value;
         console.log(email,password)
+        createUser(email, password)
+        .then(result=>console.log(result.user))
+        .catch(error=>console.log(error.message))
+        form.reset()
     }
     return (
         <div className="hero  min-h-screen">
