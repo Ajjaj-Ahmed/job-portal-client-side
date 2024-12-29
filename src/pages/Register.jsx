@@ -18,8 +18,8 @@ const Register = () => {
         form.reset()
     }
     return (
-        <div className="hero  min-h-screen">
-            <div className="hero-content gap-16 items-center justify-between">      
+        <div className=" min-h-screen">
+            <div className="hero-content items-center justify-around">      
                 <div>
                     <div className="text-center pb-7">
                         <h1 className="text-5xl font-bold">Register now!</h1>
