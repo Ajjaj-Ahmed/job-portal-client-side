@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import loginAnimation from '../assets/lottiee/login.json'
-import Lottie from 'lottie-react';
 import { AuthContext } from '../Context/AuthContext/AuthProvider';
-import { sendPasswordResetEmail } from 'firebase/auth';
+// import { sendPasswordResetEmail } from 'firebase/auth';
+import Lottie from 'lottie-react';
 
 const SignIn = () => {
     const {loginUser} = useContext(AuthContext);

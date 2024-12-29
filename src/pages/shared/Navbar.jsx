@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import logo from '../../assets/logo.png'
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthContext/AuthProvider';
 
 const Navbar = () => {
@@ -11,8 +12,10 @@ const Navbar = () => {
         
     }
     const links = <>
-        <li><a>Item 1</a></li>
-        <li><a>Item 3</a></li>
+        <li><NavLink to={'/'}>Home</NavLink></li>
+        <li><NavLink>Contact</NavLink></li>
+        <li><NavLink>Application</NavLink></li>
+        
     </>
 
     return (
@@ -39,7 +42,10 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <Link to={'/'} className="btn btn-ghost text-xl">daisyUI</Link>
+                <Link to={'/'} className="btn btn-ghost text-xl">
+                <img className='w-12' src={logo} alt="" />
+                <h2>Job Portal</h2>
+                </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
