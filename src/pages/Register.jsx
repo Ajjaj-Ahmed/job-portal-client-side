@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import animationPic from '../assets/lottiee/register.json'
 import Lottie from 'lottie-react';
 import { AuthContext } from '../Context/AuthContext/AuthProvider';
+import GoogleLogin from './shared/googleLogin';
 
 const Register = () => {
     const {createUser} = useContext(AuthContext)
@@ -23,6 +24,9 @@ const Register = () => {
                 <div>
                     <div className="text-center pb-7">
                         <h1 className="text-5xl font-bold">Register now!</h1>
+                    </div>
+                    <div className=' btn btn-secondary flex justify-center mb-3'>
+                    <GoogleLogin></GoogleLogin>
                     </div>
                     <div className="card bg-base-200 w-full max-w-sm shrink-0 shadow-xl">
                     <form onSubmit={handleRegister} className="card-body">

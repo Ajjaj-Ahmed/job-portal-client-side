@@ -3,6 +3,7 @@ import loginAnimation from '../assets/lottiee/login.json'
 import { AuthContext } from '../Context/AuthContext/AuthProvider';
 // import { sendPasswordResetEmail } from 'firebase/auth';
 import Lottie from 'lottie-react';
+import GoogleLogin from './shared/googleLogin';
 
 const SignIn = () => {
     const {loginUser} = useContext(AuthContext);
@@ -33,6 +34,9 @@ const SignIn = () => {
                     <h1 className="text-5xl font-bold">Member Login</h1>
                     <p>Access to all features, no payment is required</p>
                 </div>
+                <div className=' btn btn-secondary flex justify-center mb-3'>
+                    <GoogleLogin></GoogleLogin>
+                    </div>
                 <div className="card bg-base-200 w-full max-w-sm shrink-0 shadow-xl">
                 <form onSubmit={handleLogin}  className="card-body">
                     <div className="form-control">
