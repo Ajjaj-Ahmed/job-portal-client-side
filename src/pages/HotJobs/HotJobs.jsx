@@ -1,13 +1,16 @@
 import React from 'react';
-import { CiLocationOn } from "react-icons/ci";
-import { Link } from 'react-router-dom';
+import { CiLocationOn } from 'react-icons/ci';
+import { Link, useLoaderData } from 'react-router-dom';
 
-const HotJobCard = ({ job }) => {
+
+const HotJobs = () => {
+    const job = useLoaderData();
     const { _id,category, company, company_logo, description, hr_email, hr_name, location, requirements, 
         jobType,responsibilities, salaryRange, status, title } = job
-
+    console.log(job);
     return (
-        <div className="card card-compact border-2 shadow-md ">
+        <div className='flex my-6'>
+            <div className="card card-compact border-2 w-1/2">
             <div className='flex justify-start items-center gap-2 p-2'>
                 <img className='w-16'
                     src={company_logo}
@@ -39,13 +42,17 @@ const HotJobCard = ({ job }) => {
                 <div className="flex items-center mt-5 justify-between">
                     <p className='text-lg font-semibold'>Salary: {salaryRange.min} - {salaryRange.max} {salaryRange.currency}</p>
                     <Link to={`/jobs/${_id}`}>
-                    <button className="btn btn-primary">View Details</button>
+                    <button className="btn btn-primary">Apply Now</button>
                     </Link>
                   
                 </div>
             </div>
         </div>
+            <div>
+
+            </div>
+        </div>
     );
 };
 
-export default HotJobCard;
+export default HotJobs;
