@@ -41,7 +41,7 @@ const HotJobs = () => {
                 </div>
                 <div className="flex items-center mt-5 justify-between">
                     <p className='text-lg font-semibold'>Salary: {salaryRange.min} - {salaryRange.max} {salaryRange.currency}</p>
-                    <Link to={`/jobs/${_id}`}>
+                    <Link to={`/jobApply/${_id}`}>
                     <button className="btn btn-primary">Apply Now</button>
                     </Link>
                   
