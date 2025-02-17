@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import Swal from 'sweetalert2'
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthContext/AuthProvider';
 // import useAuth from '../../hooks/useAuth';
 
@@ -8,7 +8,8 @@ import { AuthContext } from '../../Context/AuthContext/AuthProvider';
 const JobApply = () => {
 
     const { id } = useParams();
-    const { user } = useContext(AuthContext)
+    const { user } = useContext(AuthContext);
+    const navigate = useNavigate()
     console.log(id, user)
 
     const submitJobApplication = e => {
@@ -44,6 +45,7 @@ const JobApply = () => {
                     showConfirmButton: false,
                     timer: 1500
                   });
+                  navigate('/myApplications')
             }
         })
     }
