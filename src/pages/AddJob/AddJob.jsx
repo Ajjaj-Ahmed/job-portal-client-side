@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Swal from 'sweetalert2'
+import { AuthContext } from '../../Context/AuthContext/AuthProvider';
+import { useNavigate } from 'react-router-dom';
 
 const AddJob = () => {
+    const {user} = useContext(AuthContext)
+    const navigate = useNavigate();
     const handleAddJob = e => {
         e.preventDefault();
         const formData = new FormData(e.target);
         const initialData = Object.fromEntries(formData.entries())
         const { min, max, currency, ...newJob } = initialData;
         newJob.salaryRange = { min, max, currency };
-        newJob.requirments = newJob.requirments.split('\n');
+        newJob.requirements = newJob.requirements.split('\n');
         newJob.responsibilites = newJob.responsibilites.split('\n');
         console.log(newJob)
         
@@ -29,6 +33,7 @@ const AddJob = () => {
                                 showConfirmButton: false,
                                 timer: 1500
                               });
+                              navigate('/')
                         }
         })
     }
@@ -70,8 +75,8 @@ const AddJob = () => {
                         <label className="label">
                             <span className="label-text">Job Field</span>
                         </label>
-                        <select name='category' className="select select-bordered">
-                            <option disabled>Pick One</option>
+                        <select  name='category' className="select select-bordered">
+                            <option disabled>Pick One Category</option>
                             <option>Engineering</option>
                             <option>Marketing</option>
                             <option>Finance</option>
@@ -97,7 +102,7 @@ const AddJob = () => {
                         <label className="label">
                             <span className="label-text">Hr Email</span>
                         </label>
-                        <input type="email" placeholder="Hr Email" className="input input-bordered" name='hr_email' required />
+                        <input defaultValue={user.email} type="email" placeholder="Hr Email" className="input input-bordered" name='hr_email' required />
                     </div>
                     {/* Hr name */}
                     <div className="form-control">
@@ -116,19 +121,20 @@ const AddJob = () => {
                 </div>
 
                 
-                {/* salary range */}
-                <div className='grid grid-cols-3 gap-4 items-end'>
+               <div className='grid grid-cols-2 gap-4'>
+                 {/* salary range */}
+                 <div className='grid grid-cols-3 gap-4 items-end'>
                     <div className="form-control">
                         {/* min */}
                         <label className="label">
                             <span className="label-text">Salary Range</span>
                         </label>
-                        <input type="test" placeholder="min" className="input input-bordered" name='min' required />
+                        <input type="number" placeholder="min" className="input input-bordered" name='min' required />
                     </div>
 
                     <div className="form-control">
                         {/* max */}
-                        <input type="test" placeholder="Max" className="input input-bordered" name='max' required />
+                        <input type="number" placeholder="Max" className="input input-bordered" name='max' required />
                     </div>
                     {/* currency */}
                     <div className="form-control">
@@ -141,6 +147,15 @@ const AddJob = () => {
                         </select>
                     </div>
                 </div>
+                 {/* deadline */}
+                 <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Application Deadline</span>
+                        </label>
+                        <input type="date" placeholder="Application Deadline" className="input input-bordered" name='applicationDeadline' required />
+
+                    </div>
+               </div>
 
                 {/* job description */}
                 <div className="form-control">
@@ -157,7 +172,7 @@ const AddJob = () => {
                     <label className="label">
                         <span className="label-text">Requirments</span>
                     </label>
-                    <textarea className="textarea textarea-bordered" name='requirments' placeholder="Each requirnent type in a new line" required></textarea>
+                    <textarea className="textarea textarea-bordered" name='requirements' placeholder="Each requirnent type in a new line" required></textarea>
                 </div>
                 {/* responsibilities */}
                 <div className="form-control">
