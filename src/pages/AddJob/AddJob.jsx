@@ -94,7 +94,7 @@ const AddJob = () => {
                         <label className="label">
                             <span className="label-text">Company Name</span>
                         </label>
-                        <input type="text" placeholder="Company Name" className="input input-bordered" name='location' required />
+                        <input type="text" placeholder="Company Name" className="input input-bordered" name='company' required />
 
                     </div>
                     {/* Hr email */}
