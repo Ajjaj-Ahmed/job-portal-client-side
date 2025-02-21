@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Context/AuthContext/AuthProvider';
+import { Link } from 'react-router-dom';
 
 const MyPostedJobs = () => {
     const [jobs, setJobs] = useState([]);
@@ -22,7 +23,9 @@ const MyPostedJobs = () => {
                             <th>Job Title</th>
                             <th>Category</th>
                             <th>Location</th>
+                            <th>Application Count</th>
                             <th>Deadline</th>
+                            <th>View Application</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -32,7 +35,14 @@ const MyPostedJobs = () => {
                             <td>{job.title}</td>
                             <td>{job.category}</td>
                             <td>{job.location}</td>
+                            <td>{job.applicationCount}</td>
                             <td>{job.applicationDeadline}</td>
+                            <td>
+                               <Link to={`/viewApplications/${job._id}`}>
+                               <button className='btn btn-link'>View Application</button>
+                               </Link>
+                            </td>
+                            
                         </tr>)
                         }
                        
