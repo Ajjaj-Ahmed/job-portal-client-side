@@ -10,12 +10,13 @@ import MyApplication from "../pages/MyApplication/MyApplication";
 import AddJob from "../pages/AddJob/AddJob";
 import MyPostedJobs from "../pages/MyPostedJobs/MyPostedJobs";
 import ViewApplications from "../pages/ViewApplications/ViewApplications";
+import ErrorElement from "../pages/ErrorElement";
 
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Root></Root>,
-      errorElement:<h2>Pages not found</h2>,
+      errorElement:<ErrorElement></ErrorElement>,
       children:[
         {
             path:'/',

@@ -7,9 +7,7 @@ const Footer = () => {
             <aside>
                 <img className='w-16' src={logo} alt="" />
                 <p>
-                    ACME Industries Ltd.
-                    <br />
-                    Providing reliable tech since 1992
+                    Providing reliable tech job since 2010
                 </p>
             </aside>
             <nav>
